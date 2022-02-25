@@ -1,42 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_7009AD25-ED13-4CCB-B83E-3BAE46094543" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_D7E7D24A-EB7B-4514-BDA7-B04E30D8483A" name="RewardAmount" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_7009AD25-ED13-4CCB-B83E-3BAE46094543">
   <dmn:extensionElements/>
-  <dmn:inputData id="_32793209-D22D-4BA2-B44D-04C8D8D1A57B" name="price">
+  <dmn:inputData id="_32793209-D22D-4BA2-B44D-04C8D8D1A57B" name="quest">
     <dmn:extensionElements/>
-    <dmn:variable id="_0C7C8A9B-3752-4FE4-91D6-86AE82AFA675" name="price"/>
+    <dmn:variable id="_0C7C8A9B-3752-4FE4-91D6-86AE82AFA675" name="quest" typeRef="Any"/>
   </dmn:inputData>
-  <dmn:decision id="_E8F7B2A3-131F-4190-9C24-65D81EF501F5" name="rewardAmount">
+  <dmn:decision id="_E8F7B2A3-131F-4190-9C24-65D81EF501F5" name="reward">
     <dmn:extensionElements/>
-    <dmn:variable id="_EE345129-EB94-4D83-942D-F896B5AE5B13" name="rewardAmount" typeRef="number"/>
+    <dmn:variable id="_EE345129-EB94-4D83-942D-F896B5AE5B13" name="reward" typeRef="number"/>
     <dmn:informationRequirement id="_12D472C4-E720-449B-9E62-0B30F51103B9">
       <dmn:requiredInput href="#_32793209-D22D-4BA2-B44D-04C8D8D1A57B"/>
     </dmn:informationRequirement>
-    <dmn:decisionTable id="_C3634B02-A888-4B04-A19C-8CA4787A4950" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
-      <dmn:input id="_9E3BB01E-114A-44D3-A077-BDB22167C6AB">
-        <dmn:inputExpression id="_1DA1423C-4B4B-4EC6-B49F-DAE8842895E3" typeRef="number">
-          <dmn:text>price</dmn:text>
-        </dmn:inputExpression>
-      </dmn:input>
-      <dmn:output id="_A1FDBACD-D01A-4126-996F-4EF0FDB34820"/>
-      <dmn:annotation name="annotation-1"/>
-      <dmn:rule id="_F5404F55-3CB8-42AA-B606-7963E2C55F56">
-        <dmn:inputEntry id="_76317E9B-FD67-46BA-8B88-9925ADAA4C89">
-          <dmn:text>&gt;=0</dmn:text>
-        </dmn:inputEntry>
-        <dmn:outputEntry id="_FFD08FA5-3962-4964-9EAA-7C22C8D53E0E">
-          <dmn:text>10000</dmn:text>
-        </dmn:outputEntry>
-        <dmn:annotationEntry>
-          <dmn:text/>
-        </dmn:annotationEntry>
-      </dmn:rule>
-    </dmn:decisionTable>
+    <dmn:context id="_2AE3B222-29F9-46E5-A2A8-DFCFF0D7BCB9">
+      <dmn:contextEntry>
+        <dmn:variable id="_1CC0C30B-251D-4D61-B81B-AE6F727464A4" name="price" typeRef="number"/>
+        <dmn:literalExpression id="_F5A0999F-F9BA-4941-A480-8A27421BD920">
+          <dmn:text>quest.rewardAmount  </dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:decisionTable id="_485D266C-D6E3-4B96-8989-25F46C453C95" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+          <dmn:input id="_A59C5388-1183-496B-A54E-49EB62BFA307">
+            <dmn:inputExpression id="_87CDBAF3-6650-4C74-8246-95A0576A62DA" typeRef="number">
+              <dmn:text>price</dmn:text>
+            </dmn:inputExpression>
+          </dmn:input>
+          <dmn:output id="_7DE0ED79-AF3B-4A54-9118-32CDEDE01EBE"/>
+          <dmn:annotation name="annotation-1"/>
+          <dmn:rule id="_83E4E27E-0D92-4A66-8FAD-3DD7EB21BE2C">
+            <dmn:inputEntry id="_F54F8E47-49AA-414A-9415-19229AB1C1B4">
+              <dmn:text>&gt;=0</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_75BC972F-886E-4510-AA86-9AD0656E8C4D">
+              <dmn:text>10000</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+        </dmn:decisionTable>
+      </dmn:contextEntry>
+    </dmn:context>
   </dmn:decision>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_490A12F3-E0C0-4F1B-AC7B-9AC73BB2A12C" name="DRG">
       <di:extension>
         <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths dmnElementRef="_C3634B02-A888-4B04-A19C-8CA4787A4950">
+          <kie:ComponentWidths dmnElementRef="_2AE3B222-29F9-46E5-A2A8-DFCFF0D7BCB9">
+            <kie:width>50</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>370</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_F5A0999F-F9BA-4941-A480-8A27421BD920">
+            <kie:width>370</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_485D266C-D6E3-4B96-8989-25F46C453C95">
             <kie:width>50</kie:width>
             <kie:width>100</kie:width>
             <kie:width>100</kie:width>
@@ -59,12 +77,12 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="526" y="110" width="100" height="50"/>
+        <dc:Bounds x="347" y="89" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="dmnedge-drg-_12D472C4-E720-449B-9E62-0B30F51103B9" dmnElementRef="_12D472C4-E720-449B-9E62-0B30F51103B9">
         <di:waypoint x="396" y="229"/>
-        <di:waypoint x="576" y="135"/>
+        <di:waypoint x="397" y="114"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
