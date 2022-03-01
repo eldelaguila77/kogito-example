@@ -29,10 +29,32 @@
           <dmn:annotation name="annotation-1"/>
           <dmn:rule id="_83E4E27E-0D92-4A66-8FAD-3DD7EB21BE2C">
             <dmn:inputEntry id="_F54F8E47-49AA-414A-9415-19229AB1C1B4">
-              <dmn:text>&gt;=0</dmn:text>
+              <dmn:text>[0 .. 150)</dmn:text>
             </dmn:inputEntry>
             <dmn:outputEntry id="_75BC972F-886E-4510-AA86-9AD0656E8C4D">
-              <dmn:text>10000</dmn:text>
+              <dmn:text>price * 10000</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+          <dmn:rule id="_D1C0A396-E02D-4CA2-8ABE-270434191C24">
+            <dmn:inputEntry id="_4CF6B0CF-2ACC-421B-ADDF-8CE6E2A341FA">
+              <dmn:text>[150 .. 200]</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_152E66C7-5070-4E9B-BEF5-374179618075">
+              <dmn:text>20000</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+          <dmn:rule id="_5B44C2D6-A089-43F8-A65A-6DCC24B7CE91">
+            <dmn:inputEntry id="_4343D9AE-F2A1-4985-A2F8-2949112C7700">
+              <dmn:text>&gt;=201</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_D0A2C303-D053-40D8-A113-ADC093CB824E">
+              <dmn:text>30000</dmn:text>
             </dmn:outputEntry>
             <dmn:annotationEntry>
               <dmn:text/>

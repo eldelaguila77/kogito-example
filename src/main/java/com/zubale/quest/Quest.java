@@ -19,16 +19,19 @@ public class Quest {
     private float distance;
     private int lines;
     private String platform;
+    private String storeId;
     private float rewardAmount;
+    private String formula;
 
     public Quest() {
 
     }
 
-    public Quest(float distance, int lines, String platform) {
+    public Quest(float distance, int lines, String platform, String storeId) {
         this.distance = distance;
         this.lines = lines;
         this.platform = platform;
+        this.storeId = storeId;
     }
 
     public float getDistance() {
@@ -55,11 +58,27 @@ public class Quest {
         this.platform = platform;
     }
 
+    public String getStoreId() {
+        return storeId;
+    }
+
+    public void setStoreId(String storeId) {
+        this.storeId = storeId;
+    }
+
     public float getRewardAmount() {
         return rewardAmount;
     }
 
     public void setRewardAmount(float rewardAmount) {
         this.rewardAmount = rewardAmount;
+    }
+
+    public String getFormula() {
+        return formula;
+    }
+
+    public void setFormula(String formula) {
+        this.formula = formula;
     }
 }
