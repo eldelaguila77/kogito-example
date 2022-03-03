@@ -27,7 +27,7 @@
       <dmn:contextEntry>
         <dmn:variable id="_BE98F650-D661-4B56-921F-7DC000804588" name="formula" typeRef="string"/>
         <dmn:literalExpression id="_8EA9E181-9058-427B-81B8-F7F32E013821">
-          <dmn:text>formula  </dmn:text>
+          <dmn:text>quest.formula</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
@@ -52,10 +52,10 @@
           </dmn:rule>
           <dmn:rule id="_71098935-BE0C-4396-B7B1-B27C2215E872">
             <dmn:inputEntry id="_C1DAB891-D1D5-48BE-9FED-5338E0AF9294">
-              <dmn:text>-</dmn:text>
+              <dmn:text>"walmart_base"</dmn:text>
             </dmn:inputEntry>
             <dmn:outputEntry id="_3942E3B7-EF6E-407F-B97E-A51EC97D8575">
-              <dmn:text/>
+              <dmn:text>10</dmn:text>
             </dmn:outputEntry>
             <dmn:annotationEntry>
               <dmn:text/>

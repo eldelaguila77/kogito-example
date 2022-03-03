@@ -15,6 +15,12 @@
  */
 package com.zubale.quest;
 
+import javax.script.Bindings;
+import javax.script.ScriptContext;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+
 public class Quest {
     private float distance;
     private int lines;
@@ -22,6 +28,7 @@ public class Quest {
     private String storeId;
     private float rewardAmount;
     private String formula;
+    private float calculate;
 
     public Quest() {
 
@@ -70,7 +77,10 @@ public class Quest {
         return rewardAmount;
     }
 
-    public void setRewardAmount(float rewardAmount) {
+    public void setRewardAmount(float rewardAmount) throws ScriptException {
+        Float prueba = this.distance + this.lines;
+        System.out.println("Adult prueba!" + prueba);
+        this.setCalculate("");
         this.rewardAmount = rewardAmount;
     }
 
@@ -80,5 +90,25 @@ public class Quest {
 
     public void setFormula(String formula) {
         this.formula = formula;
+    }
+
+    public float getCalculate() {
+        return calculate;
+    }
+
+    public void setCalculate(String calculate) throws ScriptException {
+        ScriptEngineManager manager = new ScriptEngineManager();
+        ScriptEngine engine = manager.getEngineByName("js");
+        //Object result = engine.eval(this.distance + "*5 + " + this.lines);
+        engine.put("dist", this.distance);
+        engine.put("lin", this.lines);
+        Bindings bindings = engine.getBindings(ScriptContext.ENGINE_SCOPE);
+        Object dist = bindings.get("dist");
+        Object lin = bindings.get("lin");
+        System.out.println("dist = " + dist);
+        System.out.println("lin = " + lin);
+        Object result = engine.eval("dist + 5 * lin");
+        System.out.println("prueba formula" + result);
+        this.calculate = 2;
     }
 }
