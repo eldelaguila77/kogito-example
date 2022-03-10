@@ -29,6 +29,7 @@ public class Quest {
     private float rewardAmount;
     private String formula;
     private float calculate;
+    private float reward;
 
     public Quest() {
 
@@ -80,7 +81,7 @@ public class Quest {
     public void setRewardAmount(float rewardAmount) throws ScriptException {
         Float prueba = this.distance + this.lines;
         System.out.println("Adult prueba!" + prueba);
-        this.setCalculate("");
+        this.setCalculate("0");
         this.rewardAmount = rewardAmount;
     }
 
@@ -97,18 +98,27 @@ public class Quest {
     }
 
     public void setCalculate(String calculate) throws ScriptException {
+        System.out.println("esto trae la formula" + calculate);
         ScriptEngineManager manager = new ScriptEngineManager();
         ScriptEngine engine = manager.getEngineByName("js");
         //Object result = engine.eval(this.distance + "*5 + " + this.lines);
         engine.put("dist", this.distance);
         engine.put("lin", this.lines);
+        engine.put("wildcard", 0);
         Bindings bindings = engine.getBindings(ScriptContext.ENGINE_SCOPE);
+        Object wildcard = bindings.get("wildcard");
         Object dist = bindings.get("dist");
         Object lin = bindings.get("lin");
         System.out.println("dist = " + dist);
         System.out.println("lin = " + lin);
-        Object result = engine.eval("dist + 5 * lin");
+        System.out.println("wildcard = " + wildcard);
+        //Object result = engine.eval("(5 ) + wildcard");
+        Object result = engine.eval("(" + calculate + ") + wildcard");
         System.out.println("prueba formula" + result);
-        this.calculate = 2;
+        System.out.println("prueba formula converted" + ((Double) result).floatValue());
+        //this.calculate = ((Double) result).floatValue();
+        this.calculate = 78;
+        this.reward = 78.0f;
+        System.out.println("prueba formula reward" + result);
     }
 }

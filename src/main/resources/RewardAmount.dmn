@@ -1,110 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_7009AD25-ED13-4CCB-B83E-3BAE46094543" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_D7E7D24A-EB7B-4514-BDA7-B04E30D8483A" name="RewardAmount" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_7009AD25-ED13-4CCB-B83E-3BAE46094543">
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_3D2DDAA5-2497-4866-902E-FED082D412DA" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_2D756D47-7B06-4C4A-A8EC-E5F936AEA944" name="RewardAmount" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_3D2DDAA5-2497-4866-902E-FED082D412DA">
   <dmn:extensionElements/>
-  <dmn:inputData id="_32793209-D22D-4BA2-B44D-04C8D8D1A57B" name="quest">
+  <dmn:inputData id="_3966E9A2-6980-4A78-8C3B-CF0D588339D3" name="quest">
     <dmn:extensionElements/>
-    <dmn:variable id="_0C7C8A9B-3752-4FE4-91D6-86AE82AFA675" name="quest" typeRef="Any"/>
+    <dmn:variable id="_29D2B477-25C1-42A6-85A1-AD0EF9A2459E" name="quest" typeRef="Any"/>
   </dmn:inputData>
-  <dmn:decision id="_E8F7B2A3-131F-4190-9C24-65D81EF501F5" name="reward">
+  <dmn:decision id="_955BC999-D953-4592-AEF8-3BFC4D545AEF" name="reward">
     <dmn:extensionElements/>
-    <dmn:variable id="_EE345129-EB94-4D83-942D-F896B5AE5B13" name="reward" typeRef="number"/>
-    <dmn:informationRequirement id="_12D472C4-E720-449B-9E62-0B30F51103B9">
-      <dmn:requiredInput href="#_32793209-D22D-4BA2-B44D-04C8D8D1A57B"/>
+    <dmn:variable id="_0ADFA41B-F1FD-42A2-8EF6-7873D5993C07" name="reward" typeRef="number"/>
+    <dmn:informationRequirement id="_54278F8D-1B6E-4941-8A51-6590B60C6039">
+      <dmn:requiredInput href="#_3966E9A2-6980-4A78-8C3B-CF0D588339D3"/>
     </dmn:informationRequirement>
-    <dmn:context id="_2AE3B222-29F9-46E5-A2A8-DFCFF0D7BCB9">
+    <dmn:context id="_CF68FF9E-4DD2-44F5-82E5-0B428FA7D1B4">
       <dmn:contextEntry>
-        <dmn:variable id="_1CC0C30B-251D-4D61-B81B-AE6F727464A4" name="price" typeRef="number"/>
-        <dmn:literalExpression id="_F5A0999F-F9BA-4941-A480-8A27421BD920">
-          <dmn:text>quest.rewardAmount  </dmn:text>
+        <dmn:variable id="_4DE7FDD9-4632-45B2-88D0-E1EFC9DCC2AA" name="distance" typeRef="number"/>
+        <dmn:literalExpression id="_89F8EFB7-2445-4715-8243-76B7F8AA045A">
+          <dmn:text>quest.distance  </dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
-        <dmn:decisionTable id="_485D266C-D6E3-4B96-8989-25F46C453C95" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
-          <dmn:input id="_A59C5388-1183-496B-A54E-49EB62BFA307">
-            <dmn:inputExpression id="_87CDBAF3-6650-4C74-8246-95A0576A62DA" typeRef="number">
-              <dmn:text>price</dmn:text>
-            </dmn:inputExpression>
-          </dmn:input>
-          <dmn:output id="_7DE0ED79-AF3B-4A54-9118-32CDEDE01EBE"/>
-          <dmn:annotation name="annotation-1"/>
-          <dmn:rule id="_83E4E27E-0D92-4A66-8FAD-3DD7EB21BE2C">
-            <dmn:inputEntry id="_F54F8E47-49AA-414A-9415-19229AB1C1B4">
-              <dmn:text>[0 .. 150)</dmn:text>
-            </dmn:inputEntry>
-            <dmn:outputEntry id="_75BC972F-886E-4510-AA86-9AD0656E8C4D">
-              <dmn:text>price * 10000</dmn:text>
-            </dmn:outputEntry>
-            <dmn:annotationEntry>
-              <dmn:text/>
-            </dmn:annotationEntry>
-          </dmn:rule>
-          <dmn:rule id="_D1C0A396-E02D-4CA2-8ABE-270434191C24">
-            <dmn:inputEntry id="_4CF6B0CF-2ACC-421B-ADDF-8CE6E2A341FA">
-              <dmn:text>[150 .. 200]</dmn:text>
-            </dmn:inputEntry>
-            <dmn:outputEntry id="_152E66C7-5070-4E9B-BEF5-374179618075">
-              <dmn:text>20000</dmn:text>
-            </dmn:outputEntry>
-            <dmn:annotationEntry>
-              <dmn:text/>
-            </dmn:annotationEntry>
-          </dmn:rule>
-          <dmn:rule id="_5B44C2D6-A089-43F8-A65A-6DCC24B7CE91">
-            <dmn:inputEntry id="_4343D9AE-F2A1-4985-A2F8-2949112C7700">
-              <dmn:text>&gt;=201</dmn:text>
-            </dmn:inputEntry>
-            <dmn:outputEntry id="_D0A2C303-D053-40D8-A113-ADC093CB824E">
-              <dmn:text>30000</dmn:text>
-            </dmn:outputEntry>
-            <dmn:annotationEntry>
-              <dmn:text/>
-            </dmn:annotationEntry>
-          </dmn:rule>
-        </dmn:decisionTable>
+        <dmn:variable id="_7B21A53A-51B7-43E6-BDDD-D7CD7ACCCD85" name="lines" typeRef="number"/>
+        <dmn:literalExpression id="_FC390DAC-2353-4ADC-959E-6F00790F092D">
+          <dmn:text>quest.lines  </dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_3AA5E808-7133-48FF-AA85-EFB9A5C0E40D" name="calculate" typeRef="number"/>
+        <dmn:literalExpression id="_5F4369B3-FFF2-4CDC-96EE-C9E89C34DEB4">
+          <dmn:text>quest.calculate  </dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:literalExpression id="_D0A7A853-DE9E-4579-A671-A0D811F8BA36">
+          <dmn:text>calculate  </dmn:text>
+        </dmn:literalExpression>
       </dmn:contextEntry>
     </dmn:context>
   </dmn:decision>
   <dmndi:DMNDI>
-    <dmndi:DMNDiagram id="_490A12F3-E0C0-4F1B-AC7B-9AC73BB2A12C" name="DRG">
+    <dmndi:DMNDiagram id="_B42F3020-7B6E-47E5-BEC5-FC642F2AB89C" name="DRG">
       <di:extension>
         <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths dmnElementRef="_2AE3B222-29F9-46E5-A2A8-DFCFF0D7BCB9">
+          <kie:ComponentWidths dmnElementRef="_CF68FF9E-4DD2-44F5-82E5-0B428FA7D1B4">
             <kie:width>50</kie:width>
             <kie:width>100</kie:width>
-            <kie:width>370</kie:width>
+            <kie:width>300</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_F5A0999F-F9BA-4941-A480-8A27421BD920">
-            <kie:width>370</kie:width>
+          <kie:ComponentWidths dmnElementRef="_89F8EFB7-2445-4715-8243-76B7F8AA045A">
+            <kie:width>300</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_485D266C-D6E3-4B96-8989-25F46C453C95">
-            <kie:width>50</kie:width>
-            <kie:width>100</kie:width>
-            <kie:width>100</kie:width>
-            <kie:width>100</kie:width>
+          <kie:ComponentWidths dmnElementRef="_FC390DAC-2353-4ADC-959E-6F00790F092D">
+            <kie:width>300</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_5F4369B3-FFF2-4CDC-96EE-C9E89C34DEB4">
+            <kie:width>300</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_D0A7A853-DE9E-4579-A671-A0D811F8BA36">
+            <kie:width>300</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
-      <dmndi:DMNShape id="dmnshape-drg-_32793209-D22D-4BA2-B44D-04C8D8D1A57B" dmnElementRef="_32793209-D22D-4BA2-B44D-04C8D8D1A57B" isCollapsed="false">
+      <dmndi:DMNShape id="dmnshape-drg-_3966E9A2-6980-4A78-8C3B-CF0D588339D3" dmnElementRef="_3966E9A2-6980-4A78-8C3B-CF0D588339D3" isCollapsed="false">
         <dmndi:DMNStyle>
           <dmndi:FillColor red="255" green="255" blue="255"/>
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="346" y="204" width="100" height="50"/>
+        <dc:Bounds x="345" y="300" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
-      <dmndi:DMNShape id="dmnshape-drg-_E8F7B2A3-131F-4190-9C24-65D81EF501F5" dmnElementRef="_E8F7B2A3-131F-4190-9C24-65D81EF501F5" isCollapsed="false">
+      <dmndi:DMNShape id="dmnshape-drg-_955BC999-D953-4592-AEF8-3BFC4D545AEF" dmnElementRef="_955BC999-D953-4592-AEF8-3BFC4D545AEF" isCollapsed="false">
         <dmndi:DMNStyle>
           <dmndi:FillColor red="255" green="255" blue="255"/>
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="347" y="89" width="100" height="50"/>
+        <dc:Bounds x="346" y="202" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
-      <dmndi:DMNEdge id="dmnedge-drg-_12D472C4-E720-449B-9E62-0B30F51103B9" dmnElementRef="_12D472C4-E720-449B-9E62-0B30F51103B9">
-        <di:waypoint x="396" y="229"/>
-        <di:waypoint x="397" y="114"/>
+      <dmndi:DMNEdge id="dmnedge-drg-_54278F8D-1B6E-4941-8A51-6590B60C6039" dmnElementRef="_54278F8D-1B6E-4941-8A51-6590B60C6039">
+        <di:waypoint x="395" y="325"/>
+        <di:waypoint x="396" y="227"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
