@@ -116,9 +116,9 @@ public class Quest {
         Object result = engine.eval("(" + calculate + ") + wildcard");
         System.out.println("prueba formula" + result);
         System.out.println("prueba formula converted" + ((Double) result).floatValue());
-        //this.calculate = ((Double) result).floatValue();
-        this.calculate = 78;
-        this.reward = 78.0f;
+        this.calculate = ((Double) result).floatValue();
+        //this.calculate = 78;
+        //this.reward = 78.0f;
         System.out.println("prueba formula reward" + result);
     }
 }

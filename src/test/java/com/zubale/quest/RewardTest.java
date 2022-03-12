@@ -16,35 +16,52 @@
 
 package com.zubale.quest;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
+
+import com.opencsv.exceptions.CsvValidationException;
+import com.sap.csv2json.ConvertCSVtoJson;
+import com.sap.csv2json.Payload;
 
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
-import io.restassured.response.ValidatableResponse;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
 
 @QuarkusTest
 public class RewardTest {
-    @Test
 
-    public void test() {
-        given()
-                .body("{\n" +
-                        " \"quest\": {\n" +
-                        " \"distance\": 9,\n" +
-                        " \"lines\": 3,\n" +
-                        " \"platform\": \"chedraui\",\n" +
-                        " \"storedId\": \"333\"\n" +
-                        "} \n" +
-                        "}")
+    @Test
+    public void test() throws CsvValidationException {
+        System.out.println("prueba csv");
+        List<Payload> payload = ConvertCSVtoJson.readCsvUsingOpenCsv("/home/eldelaguila77/Documentos/zubale/csvprueba.csv");
+  
+        System.out.println("prueba json on test: " + payload.get(0).distance);
+        for (int i = 0; i < payload.size(); i++) {
+            String quest = "{\n" +
+                    " \"quest\": {\n" +
+                    " \"distance\": " + payload.get(i).distance + ",\n" +
+                    " \"lines\": " + payload.get(i).lines + ",\n" +
+                    " \"platform\": \"" + payload.get(i).platform + "\",\n" +
+                    " \"storeId\": \"" + payload.get(i).storedId + "\"\n" +
+                    "} \n" +
+                    "}";
+            Float expectedReward = payload.get(i).reward;
+
+            System.out.println("quest " + i + " : " + quest);
+            System.out.println("expectedReward:  " + i + " : " + expectedReward);
+
+            given()
+                .body(quest)
                 .contentType(ContentType.JSON)
                 .when()
-                .post("http://localhost:8080/reward/RewardAmount")
+                .post("RewardAmount")
                 .then()
                 .statusCode(201)
-                .body("reward", is(0.0F));
+                .body("reward", is(expectedReward));
+        }
 
     }
 }
