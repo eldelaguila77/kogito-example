@@ -37,7 +37,7 @@ public class RewardTest {
     public void test() throws CsvValidationException {
         System.out.println("prueba csv");
         List<Payload> payload = ConvertCSVtoJson.readCsvUsingOpenCsv("/home/eldelaguila77/Documentos/zubale/csvprueba.csv");
-  
+
         System.out.println("prueba json on test: " + payload.get(0).distance);
         for (int i = 0; i < payload.size(); i++) {
             String quest = "{\n" +
@@ -54,13 +54,13 @@ public class RewardTest {
             System.out.println("expectedReward:  " + i + " : " + expectedReward);
 
             given()
-                .body(quest)
-                .contentType(ContentType.JSON)
-                .when()
-                .post("RewardAmount")
-                .then()
-                .statusCode(201)
-                .body("reward", is(expectedReward));
+                    .body(quest)
+                    .contentType(ContentType.JSON)
+                    .when()
+                    .post("RewardAmount")
+                    .then()
+                    .statusCode(201)
+                    .body("reward", is(expectedReward));
         }
 
     }
