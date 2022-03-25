@@ -1,3 +1,18 @@
-distance,lines,platform,storedId,reward
-9,3,chedraui,333,75
-25,2,chedraui,666,181.25
+RuleSet,com.zubale.quest,,,,
+Import,com.zubale.quest.Quest,,,,
+Sequential,1,,,,
+Notes,,,,,
+,,,,,
+RuleTable RewardAmount,,,,,
+CONDITION,CONDITION,CONDITION,CONDITION,RULEFLOW_GROUP,ACTION
+$quest: Quest,,,,,
+$quest.platform == "$param",$quest.storeId == "$1",$quest.distance $param,$quest.lines $param,,$quest.setCalculate("$1");
+platform,storeId,distance,lines,,price
+amex,,,,REWARD_AMOUNT,35
+petco,,,,REWARD_AMOUNT,27
+walmart,,,,REWARD_AMOUNT,(35 + 5 * dist + 1 * lin)
+chedraui,prueba,<=8,<=2,REWARD_AMOUNT,95
+chedraui,333, 444,>=9,>=3,REWARD_AMOUNT,75
+chedraui,666, 777, 888,>=25,,REWARD_AMOUNT,75 + (dist - 8) * 6.25
+chedraui,default,!=0,!=0,REWARD_AMOUNT,(75 + (25 - 8) * 6.25)
+general,789,,,REWARD_AMOUNT,150
