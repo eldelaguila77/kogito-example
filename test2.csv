@@ -8,7 +8,7 @@ CONDITION,CONDITION,CONDITION,CONDITION,RULEFLOW_GROUP,ACTION
 $quest: Quest,,,,,
 $quest.platform == "$param",$quest.storeId == "$1",$quest.distance $param,$quest.lines $param,,$quest.setCalculate("$1");
 platform,storeId,distance,lines,,price
-amex,,,,REWARD_AMOUNT,35
+amex,,,,REWARD_AMOUNT,REWARD_AMOUNT
 petco,,,,REWARD_AMOUNT,27
 walmart,,,,REWARD_AMOUNT,(35 + 5 * dist + 1 * lin)
 chedraui,prueba,<=8,<=2,REWARD_AMOUNT,95
